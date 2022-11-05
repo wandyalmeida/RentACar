@@ -28,7 +28,23 @@ public class Car implements CarInterface {
 
       @Override
     public Map<Month, boolean[]> createAvailability() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
+          int [] month;
+  
+        HashMap<Integer,String> carMap= new HashMap<>();
+        carMap.put (5,"Toyota");
+        carMap.put(10,"Fiat");
+        carMap.put(5,"BMW");
+        carMap.put(5,"Chevrolet");
+        carMap.put(10,"Ford");
+    System.out.println("HashMap elements: cars ");
+    for(Map.Entry mEntry : carMap.entrySet()){
+      System.out.print("key: "+ mEntry.getKey() + " & Value: ");
+      System.out.println(mEntry.getValue()); 
+   
+        
+    }
+        return null;
     }
 
     @Override
