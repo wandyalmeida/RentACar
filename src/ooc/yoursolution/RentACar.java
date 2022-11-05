@@ -14,44 +14,65 @@ import ooc.enums.Month;
  */
 public class RentACar implements RentACarInterface {
 
+    //intiailzing the string that are going to be used in this class
+    private Make make;
+    private List<CarInterface>cars;
+    private String name;
+    private int numCar;
+
+    
+    RentACar(Make make, String name, int numCar, List<CarInterface>cars) {
+        this.make = make;
+        this.name = name;
+        this.numCar = numCar;
+        this.cars = cars;
+        
+       
+ }
+    
     @Override
-    public List<CarInterface> getCars() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<CarInterface> getCars(){
+        return cars;
+    }
+    //setter 
+    @Override
+    public void setCars(List<CarInterface> cars){
+        this.cars=cars;
+    }
+    //getting name
+    @Override
+    public String getName(){
+        return name;
     }
 
     @Override
-    public void setCars(List<CarInterface> cars) {
+    public void setName(String name){
+        this.name = name;
+    }
+
+   
+    @Override
+    public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent){
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+  
     @Override
-    public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int getCarAvailable(Month month, int day, Make make, int lengthOfRent) {
+    public int getCarAvailable(Month month, int day, Make make, int lengthOfRent){
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public boolean bookCar(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public int getNumberOfCars() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return cars.size();
+      
     }
-    
-}
+ }
+
+   
+   

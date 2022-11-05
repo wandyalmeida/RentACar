@@ -6,6 +6,9 @@ package ooc.yoursolution;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import ooc.enums.Make;
 
 /**
  *
@@ -15,26 +18,29 @@ public class BookingSystem implements BookingSystemInterface {
 
     @Override
     public RentACarInterface setupRentACar(BufferedReader in) throws IOException {
-        String title = in.readLine();
-        String cars = "";
         
-        RentACarInterface car = new RentACar();
-        
-        while(title != null){
-            //System.out.println(title);
-            cars = in.readLine();
-            System.out.println(cars);
-            //System.out.println(content);
-            
-//            FeedItem item = new FeedItem(title, content);
-//            feed.addItem(item);
-            
-            
-        }
+        //Start variables 
+        List<CarInterface> cars = new ArrayList<>();//to store cars data in arraylist
+        String list, name;
+        name = in.readLine();
+        RentACarInterface rentACarInterface = null;
+        int numCar = 0;
+        //apply while loop to read each line in fine
+        while ((list = in.readLine()) != null) {
+            //split method to get required answers
+            String[] subs = list.split(":");
+            Make make = Make.valueOf(subs[0]);//spliting make and show the names of the cars
+            double rate = Double.parseDouble(subs[1]);//spliting rate and show the price
+            numCar = Integer.parseInt(subs[2]);//spliting numCar and show how many car is on the list
 
-        
-        return car;
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+            Car car = new Car(make, rate, numCar);//requires a class in Car.java
+
+            cars.add(car);//car obj added
+            rentACarInterface = new RentACar(make, name, numCar, cars);
+               
+        }
+        return rentACarInterface;
+//     
+        }
 }
+
